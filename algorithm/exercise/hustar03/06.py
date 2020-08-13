@@ -1,21 +1,21 @@
 import bisect
 from queue import Queue
 
-# import sys
-# sys.stdin = open("./exercise/hustar03/06.txt", "r")
+import sys
+this_file_name = sys._getframe().f_code.co_filename
+sys.stdin = open(f"{this_file_name[:-3]}.txt", "r")
 
 def BFS(graph, visited, candidates):
 
     while not candidates.empty():
         current = candidates.get()
-        if current not in visited:
-            visited.append(current)
+        if visited[current] == False:
+            visited[current] = True
+            print(current, end=' ')
         
             for node in graph[current]:
-                if node not in visited:
+                if visited[node] == False:
                     candidates.put(node)
-
-    return visited
 
 T = int(input())
 for test_case in range(1, T + 1):
@@ -26,9 +26,10 @@ for test_case in range(1, T + 1):
         u, v = map(int, input().split())
         bisect.insort_left(graph[u], v)
 
-    visited = []
+    visited = [False] * N
     candidates = Queue()
     candidates.put(0)
+    BFS(graph, visited, candidates)
 
-    print(*BFS(graph, visited, candidates))
+    print()
     

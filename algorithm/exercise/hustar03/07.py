@@ -1,3 +1,5 @@
+# 최대 합 부분 연속 수열
+
 import sys
 import socket
 com = socket.gethostname()
@@ -7,4 +9,5 @@ if com in ('piai-Precision-7920-Tower', 'Normalist'):
 
 T = int(input())
 for test_case in range(1, T + 1):
-    pass
+    nums = [num for num in map(int, input().split())]
+    
