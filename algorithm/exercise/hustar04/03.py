@@ -12,25 +12,10 @@ if com in ('piai-Precision-7920-Tower', 'Normalistui-MacBookPro.local'):
 T = int(input())
 for test_case in range(1, T + 1):
     houses = [house for house in map(int, input().split())]
-    park = len(houses) * min(houses)
+    
+    stack = []
 
-    for idx, house in enumerate(houses):
-        row = 1
-        if idx != 0:
-            for left, pre_house in enumerate(houses[idx-1::-1]):
-                if pre_house < house:
-                    row += left
-                    break
-            else:
-                row += left + 1
-        if idx != len(houses) - 1:
-            for right, post_house in enumerate(houses[idx+1:]):
-                if post_house < house:
-                    row += right
-                    break
-            else:
-                row += right + 1
-            if park < row * house:
-                park = row * house
+    for idx in range(len(houses)):
+        pass
 
-    print(park)
+    print()

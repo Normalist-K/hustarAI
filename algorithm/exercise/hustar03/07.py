@@ -15,12 +15,8 @@ for test_case in range(1, T + 1):
     max_num = nums[0]
 
     for num in nums[1:]:
-        add_num = add + num
-        if add_num > max_num:
-            max_num = add_num
-        if add_num <= 0:
-            add = 0
-        if add_num > 0:
-            add = add_num
+        add += num
+        max_num = max(max_num, add)
+        add = 0 if add <= 0 else add
 
     print(max_num)

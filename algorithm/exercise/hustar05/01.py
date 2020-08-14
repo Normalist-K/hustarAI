@@ -1,13 +1,12 @@
-# 피보나치 수열
+# 피보나치 - DP
 
 import sys
-sys.stdin = open("project03-1.txt", "r")
+import socket
+com = socket.gethostname()
+if com in ('piai-Precision-7920-Tower', 'Normalistui-MacBookPro.local'):
+    this_file_name = sys._getframe().f_code.co_filename
+    sys.stdin = open(f"{this_file_name[:-3]}.txt", "r")
 
-def fibo(n):
-    if n in (1, 2):
-        return 1
-
-    return fibo(n-1) + fibo(n-2)
 
 def fibo_dp(n):
     fibo = [0 for _ in range(n + 1)]

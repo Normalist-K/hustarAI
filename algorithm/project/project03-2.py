@@ -1,3 +1,5 @@
+# 이진 탐색 2
+
 import bisect
 
 # import sys
@@ -13,6 +15,7 @@ def find(nums, search):
     else:
         sub1 = search - nums[i-1]
         sub2 = nums[i] - search
+        # return nums[i-1] if sub1 <= sub2 else nums[i]
         if sub1 <= sub2:
             return nums[i-1]
         elif sub1 > sub2:
