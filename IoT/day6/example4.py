@@ -24,7 +24,7 @@ def main():
     print('main() program')
     try:
         while True:
-            #onFan()
+            onFan()
             sleep(3.0)
             offFan()
             sleep(1.0)
