@@ -8,7 +8,7 @@ library(dplyr)
 library(maps)
 
 # mapdata : more world map 
-#install.packages("mapdata")
+# install.packages("mapdata")
 library(mapdata)
 
 # mapproj : latitude and longitude
@@ -24,7 +24,7 @@ library(ggplot2)
 library(ggmap)
 
 # set working directory
-setwd("D:/tempstore/moocr/wk5")
+setwd("C:/Users/uvent/source/repos/hustarAI/r-programming/exercise")
 
 # 1. Korea Map 
 par(mfrow = c(1, 2),mar=c(2,2,2,2))
@@ -34,10 +34,16 @@ title("Korea")
 map(database = 'worldHires', region = c('South Korea','North Korea'), col='green', fill = TRUE)
 title("Korea")
 
+map(database = 'worldHires', region = c('South Korea'), col=7, fill = TRUE)
+title("Korea")
+
+colors()
+
+
 # 2.Italy 
-par(mfrow = c(1, 1),mar=c(2,2,2,2))
-map(database = 'world', region = c('Italy'), col='coral', fill = TRUE)
-title("Italy")
+par(mfrow = c(1, 1))
+map(database = 'world', region = c('Spain'), col='coral', fill = TRUE)
+title("Spain")
 
 # 3. U.S.A using google map 
 us.map <- map_data("state")
@@ -70,13 +76,14 @@ title("Dokdo")
 # file menu: Tools_global options_code_saving
 
 # 6. Airport & route data (source : https://www.data.go.kr/)
-airport = read_csv("airport.csv")
-route = read_csv("route.csv")
+airport = read.csv("airport.csv")
+route = read.csv("route.csv")
 head(airport)
 head(route)
 
 head(route[order(route$id),])
 
+par(mfrow = c(1, 1),mar=c(2,10,2,10))
 # Korea map (kr.map)
 world.map <- map_data("world")
 kr.map <- world.map %>% filter(region == "South Korea")

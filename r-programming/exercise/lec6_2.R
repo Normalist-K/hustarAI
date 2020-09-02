@@ -2,11 +2,12 @@
 # Data exploration : Numerical summary statistics
 
 # set working directory
-setwd("D:/tempstore/moocr")
+setwd("C:/Users/uvent/source/repos/hustarAI/r-programming/exercise")
 
 ### student math grade data ####
 
-stud<-read.csv("stud_math.csv")
+stud<-read.csv2("stud_math.csv")
+stud2<-read.csv("stud_math.csv", sep=';')
 
 head(stud)
 dim(stud)
@@ -29,7 +30,7 @@ summary(stud[vars])
 sapply(stud[vars], mean)
 
 # descriptive statistics using "psych" package
-install.packages("psych")
+# install.packages("psych")
 library(psych)
 # require "psych" for "describe" function
 describe(stud[vars])
@@ -40,12 +41,14 @@ table(health)
 health_freq<-table(health)
 names(health_freq) <- c ("very bad", "bad", "average", "good",
                       "very good")
+health_freq
 barplot(health_freq, col=3)
 
 # 2*2 contingency table
 table(health,studytime)
 
+
 ##################
 
-#chisq.test(health,studytime)
+chisq.test(health,studytime)
 

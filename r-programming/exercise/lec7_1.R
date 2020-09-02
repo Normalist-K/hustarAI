@@ -2,10 +2,10 @@
 # t-test for two sample means
 
 # set working directory
-setwd("D:/tempstore/moocr")
+setwd("C:/Users/uvent/source/repos/hustarAI/r-programming/exercise")
 
 ### student math grade data ####
-stud<-read.csv("stud_math.csv")
+stud<-read.csv("stud_math.csv", sep=';')
 
 head(stud)
 dim(stud)

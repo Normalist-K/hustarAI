@@ -2,10 +2,10 @@
 # ANOVA
 
 # set working directory
-setwd("D:/tempstore/moocr")
+setwd("C:/Users/uvent/source/repos/hustarAI/r-programming/exercise")
 
 ### student math grade data ####
-stud<-read.csv("stud_math.csv")
+stud<-read.csv("stud_math.csv", sep=';')
 
 head(stud)
 dim(stud)
@@ -43,6 +43,7 @@ plot(TukeyHSD(a2, "traveltime"))
 # 4. ANOVA by romantic 
 a4 <- aov(G3~romantic)
 summary(a4)
+t.test(G3~romantic)
 # tapply - give FUN value by address
 round(tapply(G3,romantic, mean),2)
 # boxplot

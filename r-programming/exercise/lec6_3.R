@@ -2,17 +2,19 @@
 # Graphical analysis 
 
 # set working directory
-setwd("D:/tempstore/moocr")
+setwd("C:/Users/uvent/source/repos/hustarAI/r-programming/exercise")
 
 ### student math grade data ####
 
-stud<-read.csv("stud_math.csv")
+stud<-read.csv("stud_math.csv", sep=';')
 
 head(stud)
 dim(stud)
 str(stud)
 
 attach(stud)
+stud$school <- as.factor(stud$school)
+summary(stud)
 
 # 1. histogram with color and title, legend
 par(mfrow=c(2,2))
@@ -41,8 +43,12 @@ xyplot(G3 ~ traveltime | sex , data = stud, pch=16, main = "G3 ~ traveltime | se
 
 # data (G3=0)
 s1<-subset(stud, G3==0)
-#ggplot(data=s1, aes(factor(s1$address)))+geom_bar(aes(fill=factor(s1$sex)), width=.4, colour="black")+ggtitle("G3=0")
-#ggplot(data=s1, aes(factor(s1$internet)))+geom_bar(aes(fill=factor(s1$sex)), width=.4, colour="black")+ggtitle("G3=0")
+stud2 <- subset(stud, G3!=0)
+stud2m <- subset(stud2, sex=="M")
+stud2f <- subset(stud2, sex=='F')
+par(mfrow=c(1, 2))
+ggplot(data=s1, aes(factor(s1$address)))+geom_bar(aes(fill=factor(s1$sex)), width=.4, colour="black")+ggtitle("G3=0")
+ggplot(data=s1, aes(factor(s1$internet)))+geom_bar(aes(fill=factor(s1$sex)), width=.4, colour="black")+ggtitle("G3=0")
 
 # 4. scatterplot : ggplot2 package
 library(ggplot2)
@@ -50,16 +56,30 @@ library(ggplot2)
 ggplot(stud, aes(x=G1, y=G3, color=sex, shape=sex)) + 
   geom_point(size=2)
 
+ggplot(stud2, aes(x=studytime, y=G3, color=romantic, shape=romantic)) + 
+  geom_point(size=2)
+
+ggplot(stud2f, aes(x=studytime, y=G3, color=romantic, shape=romantic)) + 
+  geom_point(size=2)
+ggplot(stud2m, aes(x=studytime, y=G3, color=romantic, shape=romantic)) + 
+  geom_point(size=2)
+
 # 5. bar chart : ggplot2 package
 # bar chart for romantic by sex
-ggplot(data=stud, aes(factor(romantic)))+geom_bar(aes(fill=factor(sex)), width=.4, colour="black")+ ggtitle("Romantic by sex")
+ggplot(data=stud, aes(factor(romantic)))+
+  geom_bar(aes(fill=factor(sex)), width=.4, colour="black")+ 
+  ggtitle("Romantic by sex")
 # bar chart for internet use by (Urban, Rural)
-ggplot(data=stud, aes(factor(internet)))+geom_bar(aes(fill=factor(address)), width=.4, colour="black")+ggtitle("Internet use by (Urban, Rural)")
+ggplot(data=stud, aes(factor(internet)))+
+  geom_bar(aes(fill=factor(address)), width=.4, colour="black")+
+  ggtitle("Internet use by (Urban, Rural)")
 
 # 6. pariwise plot
 # new variable lists
 vars1<-c("G1", "G2", "G3")
 # pariwise plot
-pairs(stud[vars1], main = "Student Math Data",pch = 21, bg = c ("red","green3"))
+pairs(stud[vars1], main = "Student Math Data", pch = 21, bg = c ("red","green3"))
+pairs(stud[vars1], main = "Student Math Data", pch = 21, bg = c ("red","green3")[ unclass(stud$school) ])
+pairs(stud2[vars1], main = "Student Math Data", pch = 21, bg = c ("red","green3", "blue", "yellow")[ unclass(stud$studytime) ])
 
 

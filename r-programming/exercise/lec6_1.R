@@ -2,7 +2,7 @@
 # Data management : merge, sorting, subset 
 
 # set working directory
-setwd("D:/tempstore/moocr")
+setwd("C:/Users/uvent/source/repos/hustarAI/r-programming/exercise")
 
 # practice data
 dat1<-read.csv(file="data1.csv")
@@ -24,11 +24,15 @@ dats1<-dat12[order(dat12$age),]
 dats1
 dats2<-dat12[order(dat12$gender, dat12$age), ]
 dats2
+dats3<-dat123[order(dat123$game),]
+dats3
 
 # data subset (selecting data)
 #newdat<-dat12[which(dat12$gender=="F" & dat12$age>15),]
 newdat<-subset(dat12, dat12$gender=="F" & dat12$age>15)
 newdat
+
+hist(dats2$hourwk, col="coral")
 
 # excluding variables
 exdat<-dat12[!names(dat12) %in% c("age","gender")]

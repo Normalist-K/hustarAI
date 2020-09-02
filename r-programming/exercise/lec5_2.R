@@ -2,10 +2,10 @@
 # Grapic using ggplot2 
 
 # set working directory
-setwd("D:/tempstore/moocr")
+setwd("C:/Users/uvent/source/repos/hustarAI/r-programming/exercise")
 
 # library
-install.packages('ggplot2')
+# install.packages('ggplot2')
 library(ggplot2)
 
 # Read in R : autompg data
@@ -28,8 +28,14 @@ par(mfrow = c(1, 1))
 ggplot(car1, aes(x=wt, y=disp, color=cyl, shape=cyl)) + 
   geom_point(size=3, alpha=0.6)
 
+ggplot(car1, aes(x=wt, y=mpg, color=cyl, shape=cyl)) + 
+  geom_point(size=5, alpha=0.5)
+
 # mapping (continuous variable : mpg) on the scatterplot for wt and disp
 ggplot(car1, aes(x=wt, y=disp, color=mpg, size=mpg)) + 
+  geom_point(alpha=0.6)
+
+ggplot(car1, aes(x=wt, y=mpg, color=cyl, size=cyl)) + 
   geom_point(alpha=0.6)
 
 # 5-2-1 : geom_bar : asethetic mapping (4,6,8 cyl)
@@ -46,15 +52,18 @@ ggplot(car1, aes(factor(cyl), fill=factor(cyl)))+ geom_bar(width=.5)+ facet_grid
 
 
 # 5-2-2 : geom_bar : asethetic mapping (4,6,8 cyl)
-p <- ggplot(data=car1, aes(factor(cyl)))
-p + geom_bar(aes(fill=factor(origin)), colour="black")
+p <- ggplot(data=car1, aes(factor(cyl))) + 
+  geom_bar(aes(fill=factor(origin)), colour="black")
+
+p <- ggplot(data=car1, aes(factor(year))) + 
+  geom_bar(aes(fill=factor(cyl)), colour="black")
 
 # for Korean title
 # 5-2-2 : geom_bar : asethetic mapping (4,6,8 cyl)
-par(family="ë‚˜ëˆ”ê³ ë”•", cex=1.3)
+par(family="?‚˜?ˆ”ê³ ë”•", cex=1.3)
 p <- ggplot(data=car1, aes(factor(cyl)))
 p<-p + geom_bar(aes(fill=factor(origin)), colour="black")
-p<-p+ggtitle("ìžë™ì°¨ë°ì´í„°")
+p<-p+ggtitle("?ž?™ì°¨ë°?´?„°")
 p
 
 

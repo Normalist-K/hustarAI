@@ -3,7 +3,7 @@
 # paired t-test for two sample means
 
 # set working directory
-setwd("D:/tempstore/moocr")
+setwd("C:/Users/uvent/source/repos/hustarAI/r-programming/exercise")
 
 ## example 1: blood pressure data
 bp<-read.csv("bp.csv") 
