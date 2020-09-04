@@ -2,7 +2,7 @@
 # Correlation coefficent
 
 # set working directory
-setwd("D:/tempstore/moocr/wk8")
+setwd("C:/Users/uvent/source/repos/hustarAI/r-programming/exercise")
 
 # autompg data
 car<-read.csv("autompg.csv")
@@ -22,7 +22,7 @@ cor(accler, mpg)
 # new variable lists
 vars1<-c("disp", "wt", "accler", "mpg")
 # pariwise plot
-pairs(car1[vars1], main ="Autompg",cex=1, col=as.integer(car1$cyl),pch =substring((car1$cyl),1,1))
+pairs(car1[vars1], main ="Autompg",cex=1, col=as.integer(car1$cyl), pch=substring((car1$cyl),1,1))
 
 ## Watch out!!
 ## Monkey data

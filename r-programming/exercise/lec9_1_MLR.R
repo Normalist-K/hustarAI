@@ -3,7 +3,7 @@
 # stepwise method
 
 # set working directory
-setwd("D:/tempstore/moocr/wk9")
+setwd("C:/Users/uvent/source/repos/hustarAI/r-programming/exercise")
 
 # autompg data
 car<-read.csv("autompg.csv")
@@ -33,3 +33,4 @@ summary(r2)
 # residual diagnostic plot 
 layout(matrix(c(1,2,3,4),2,2)) # optional 4 graphs/page 
 plot(r2)
+

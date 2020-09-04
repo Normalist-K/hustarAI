@@ -3,7 +3,7 @@
 # use package "tree"
 
 #decision tree packages download
-install.packages("tree")
+#install.packages("tree")
 #load library
 library(tree)
 
@@ -12,11 +12,13 @@ library(tree)
 library(caret)
 
 # set working directory
-setwd("D:/tempstore/moocr/wk12")
+setwd("C:/Users/uvent/source/repos/hustarAI/r-programming/exercise")
 
 # read csv file
 iris<-read.csv("iris.csv")
 attach(iris)
+
+iris$Species <- as.factor(iris$Species)
 
 # training (n=100)/ test data(n=50) 
 set.seed(1000)
@@ -45,6 +47,7 @@ plot(cv.trees)
 
 # final tree model with the optimal node 
 prune.trees<-prune.misclass(treemod, best=3)
+prune.trees
 plot(prune.trees)
 text(prune.trees,pretty=0, cex=1.5)
 #help(prune.misclass)
@@ -53,4 +56,6 @@ text(prune.trees,pretty=0, cex=1.5)
 treepred<-predict(prune.trees,test,type='class')
 # classification accuracy
 confusionMatrix(treepred,test$Species)
+treepred2<-predict(treemod, test, type='class')
+confusionMatrix(treepred2, test$Species)
 

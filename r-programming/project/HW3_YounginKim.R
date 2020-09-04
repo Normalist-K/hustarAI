@@ -27,16 +27,21 @@ head(whr[order(whr$GDP.per.capita, whr$Generosity),])
 whr100 <- subset(whr, whr$Overall.rank<=100)
 
 # 1-4 
-df_whr <- whr100[1:8]
+
+# df_whr <- whr100[1:8]
+df_whr <- whr100[!names(whr) %in% c("Overall.rank")]
 str(df_whr)
 
 # 2. 데이터의 기술 통계치 요약
 
 attach(df_whr)
 
-# 2-1 mean: 6.07, sd: 0.74, median: 6.02
+# 2-1 mean: 6.07, var: 0.5439004, median: 6.02
 library(psych)
 describe(df_whr[c("Score")])
+mean(Score)
+var(Score)
+median(Score)
 
 # 2-2 59개
 m_score<-mean(Score)
@@ -63,7 +68,7 @@ summary(heart)
 hist(age, breaks = 10, col = 'lightblue')
 
 # 3-2 
-boxplot(thalach~target, boxwex=0.5, col=c("lightblue", "coral"))
+boxplot(thalach~target, boxwex=0.5, col=c("lightblue", "coral"), main = "thalack~target")
 # 질병이 있는 사람의 최대심박수 평균이 질병이 없는 사람보다 약 20정도 더 높고,
 # 질병이 있는 사람의 분포가 평균에 더 모여있다. (분산이 작다)
 

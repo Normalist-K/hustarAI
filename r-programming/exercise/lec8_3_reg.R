@@ -4,7 +4,8 @@
 library(dplyr)
 
 # set working directory
-setwd("D:/tempstore/moocr/wk8")
+setwdsetwd("C:/Users/uvent/source/repos/hustarAI/r-programming/exercise")
+
 
 # autompg data
 car<-read.csv("autompg.csv")

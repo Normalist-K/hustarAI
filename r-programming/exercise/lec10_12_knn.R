@@ -6,15 +6,15 @@
 # k-Nearest Neighbor
 
 # packages
-install.packages("class")#no weighted value knn
-install.packages("gmodels")#crosstable
-install.packages("scales")#for graph
+# install.packages("class")#no weighted value knn
+# install.packages("gmodels")#crosstable
+# install.packages("scales")#for graph
 library(class)
 library(gmodels)
 library(scales)
 
 # set working directory
-setwd("D:/tempstore/moocr/wk10")
+setwd("C:/Users/uvent/source/repos/hustarAI/r-programming/exercise")
 
 # read csv file
 iris<-read.csv("iris.csv")
@@ -92,7 +92,7 @@ legend("bottomright",
 )
 
 ## Weighted KNN packages
-install.packages("kknn")#weighted value knn
+#install.packages("kknn")#weighted value knn
 library(kknn)
 help("kknn")
 

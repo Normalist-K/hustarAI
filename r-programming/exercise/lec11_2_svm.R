@@ -8,11 +8,11 @@ library (e1071)
 # help(svm)
 
 # install package for confusionMatrix
-install.packages("caret")
+# install.packages("caret")
 library(caret)
 
 # set working directory
-setwd("D:/tempstore/moocr/wk11")
+setwd("C:/Users/uvent/source/repos/hustarAI/r-programming/exercise")
 
 # read data
 iris<-read.csv("iris.csv")
