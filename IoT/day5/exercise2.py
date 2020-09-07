@@ -106,12 +106,14 @@ def main():
     try:
         while True:
             keyData = readKeypad()
-            if 1 <= keyData and keyData <= 4:
+            if keyData in (1, 2, 3, 4):
                 is_ON = GPIO.input(LEDs[keyData-1])
                 if is_ON:
                     GPIO.output(LEDs[keyData-1], GPIO.HIGH)
                 else:
                     GPIO.output(LEDs[keyData-1], GPIO.LOW)
+            else:
+                GPIO.output(LEDs, GPIO.LOW)
 
             
     except KeyboardInterrupt:
