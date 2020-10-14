@@ -1,0 +1,7 @@
+AI/test/data_files/data.npy
+computer-vision/Lecture2_DNNs&CNNs/src/data/cifar-10-python.tar.gz
+computer-vision/Lecture4/data/91-image_x3.h5
+**/*.gz
+**/**/*.gz
+computer-vision/Lecture2_DNNs&CNNs/src/data/cifar-10-python.tar.gz
+computer-vision/Lecture3_TransferLearning_ObjectDetaction/data/cifar-10-python.tar.gz
